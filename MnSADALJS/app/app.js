@@ -2,7 +2,7 @@
 
     //authorization context
     var resource = 'https://kmpdev.sharepoint.com';
-    var endpoint = 'https://kmpdev.sharepoint.com/_api/web';
+    var endpoint = 'https://kmpdev.sharepoint.com/sites/pinterest/_api/web/lists';
 
     var authContext = new AuthenticationContext({
         instance: 'https://login.microsoftonline.com/',
@@ -48,7 +48,13 @@
                 },
             }).done(function (data) {
                 var siteName = jQuery("#loginMessage").html();
-                jQuery("#loginMessage").html(siteName + '<br/> <b>The name of the SharePoint site is: </b>' + data.Title);
+				var lists = "<ul>";
+				for(var i = 0; i <data.value.length ; i++)
+				{ 
+					lists += ("<li>" + data.value[i].Title + "</li>");
+				}
+				lists += "</ul>";
+                jQuery("#loginMessage").html(siteName + '<br/> <b>Below is List of lists: </b></br/>' + lists);
             }).fail(function (err) {
                 jQuery("#loginMessage").text('Error calling REST endpoint: ' + err.statusText);
             }).always(function () {
