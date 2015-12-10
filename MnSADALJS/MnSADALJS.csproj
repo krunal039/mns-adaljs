@@ -79,6 +79,7 @@
     <Content Include="app\app.js" />
     <Content Include="index.html" />
     <Content Include="Scripts\adal.js" />
+    <Content Include="package.json" />
     <None Include="Scripts\jquery-1.11.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.11.3.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />

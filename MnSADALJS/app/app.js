@@ -27,7 +27,7 @@
     if (user) {  //successfully logged in
 
         //welcome user
-        jQuery("#loginMessage").text("Welcome, " + user.userName);
+        jQuery("#loginMessage").html("<b>Welcome, </b>" + user.userName);
         jQuery("#signInLink").hide();
         jQuery("#signOutLink").show();
 
@@ -47,7 +47,8 @@
                     'Authorization': 'Bearer ' + token,
                 },
             }).done(function (data) {
-                jQuery("#loginMessage").text('The name of the SharePoint site is: ' + data.Title);
+                var siteName = jQuery("#loginMessage").html();
+                jQuery("#loginMessage").html(siteName + '<br/> <b>The name of the SharePoint site is: </b>' + data.Title);
             }).fail(function (err) {
                 jQuery("#loginMessage").text('Error calling REST endpoint: ' + err.statusText);
             }).always(function () {
