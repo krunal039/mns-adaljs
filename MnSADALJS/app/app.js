@@ -6,8 +6,8 @@
 
     var authContext = new AuthenticationContext({
         instance: 'https://login.microsoftonline.com/',
-        tenant: 'kmpdev.onmicrosoft.com',
-        clientId: 'dced1fa7-3b26-4131-af32-56575e5a7883',
+        tenant: '[mytenant].onmicrosoft.com',
+        clientId: '[client id]',
         postLogoutRedirectUri: window.location.origin,
         cacheLocation: 'localStorage', 
     });
